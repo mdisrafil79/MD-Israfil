@@ -1,26 +1,1022 @@
-@import "tailwindcss";
+
+/* =================================
+   1. GLOBAL THEME
+================================= */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0e1a;
+  --background-secondary: #0d1422;
+
+  --surface: #111827;
+  --surface-hover: #172235;
+
+  --primary: #32d6a5;
+  --primary-light: #45e5b5;
+  --secondary: #36c9d5;
+
+  --text-primary: #e8edf5;
+  --text-secondary: #8490a3;
+  --text-muted: #64748b;
+
+  --border: rgba(148, 163, 184, 0.12);
+
+  --gradient: linear-gradient(
+    100deg,
+    #32d6a5 0%,
+    #36c9d5 100%
+  );
+
+  --gradient-glow: 0 0 30px rgba(50, 214, 165, 0.2);
+
+  --container-width: 1200px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* =================================
+   2. RESET
+================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: var(--text-primary);
   font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--background);
+}
+
+/* =================================
+   3. REUSABLE CONTAINER
+================================= */
+
+.container {
+  width: min(90%, var(--container-width));
+  margin-inline: auto;
+}
+
+/* =================================
+   4. SECTION COMMON STYLE
+================================= */
+
+.section {
+  padding: 100px 0;
+}
+
+.section-title {
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.section-description {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* =================================
+   5. GRADIENT TEXT
+================================= */
+
+.gradient-text {
+  background: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =================================
+   6. PRIMARY BUTTON
+================================= */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 12px 25px;
+
+  border: none;
+  border-radius: 50px;
+
+  background: var(--gradient);
+  color: #071521;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--gradient-glow);
+}
+
+/* =================================
+   7. SECONDARY BUTTON
+================================= */
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 12px 25px;
+
+  border: 1px solid var(--border);
+  border-radius: 50px;
+
+  background: transparent;
+  color: var(--text-primary);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* =================================
+   8. CARD STYLE
+================================= */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background: var(--surface-hover);
+  border-color: rgba(50, 214, 165, 0.35);
+  transform: translateY(-5px);
+}
+
+/* =================================
+   9. SCROLLBAR
+================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #263449;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* =================================
+   10. RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 75px 0;
+  }
+
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+}
+
+/* =================================
+   NAVBAR
+================================= */
+
+.navbar {
+  width: 100%;
+  height: 76px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(10, 14, 26, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+.navbar-container {
+  width: min(92%, 1300px);
+  height: 100%;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.logo-bracket {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+/* Navigation Links */
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-link {
+  position: relative;
+
+  color: var(--text-secondary);
+  font-size: 18px;
+  font-weight: 500;
+
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+/* Contact Button */
+
+.navbar-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 11px 22px;
+  border-radius: 50px;
+
+  background: var(--gradient);
+  color: #071521;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.navbar-contact:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--gradient-glow);
+}
+
+.navbar-contact span {
+  font-size: 16px;
+}
+
+/* Mobile Menu Button */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+
+  padding: 8px;
+  border: none;
+  background: transparent;
+}
+
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+
+  background: var(--primary);
+  border-radius: 5px;
+
+  transition: all 0.3s ease;
+}
+
+/* =================================
+   NAVBAR RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 70px;
+  }
+
+  .navbar-logo {
+    font-size: 17px;
+  }
+
+  .navbar-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+
+    width: 100%;
+    padding: 25px 5%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+
+    background: var(--background-secondary);
+    border-bottom: 1px solid var(--border);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+
+    transition: all 0.3s ease;
+  }
+
+  .navbar-links.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .navbar-contact {
+    margin-left: auto;
+    margin-right: 15px;
+    padding: 9px 16px;
+    font-size: 12px;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar-logo {
+    font-size: 15px;
+  }
+
+  .navbar-contact {
+    padding: 8px 12px;
+    font-size: 11px;
+    margin-right: 8px;
+  }
+}
+
+
+/* =================================
+   HERO SECTION
+================================= */
+
+.hero {
+  min-height: calc(100vh - 76px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 55px 0;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 50px;
+}
+
+/* Hero Content */
+
+.hero-content {
+  max-width: 650px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: clamp(42px, 5.5vw, 68px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -2px;
+  margin-bottom: 25px;
+}
+
+.hero-description {
+  max-width: 560px;
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+/* Hero Buttons */
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.hero-buttons .btn-primary,
+.hero-buttons .btn-secondary {
+  min-height: 48px;
+}
+
+/* Hero Image */
+
+.hero-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image-glow {
+  position: absolute;
+  width: 85%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(50, 214, 165, 0.13) 0%,
+    rgba(54, 201, 213, 0.06) 45%,
+    transparent 75%
+  );
+
+  filter: blur(35px);
+}
+
+.hero-image {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 447px;
+  height: auto;
+  object-fit: contain;
+
+  filter: drop-shadow(
+    0 15px 35px rgba(50, 214, 165, 0.08)
+  );
+}
+
+/* =================================
+   HERO RESPONSIVE
+================================= */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: 65px 0;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-content {
+    margin-inline: auto;
+  }
+
+  .hero-title {
+    font-size: clamp(40px, 9vw, 55px);
+    letter-spacing: -1.5px;
+  }
+
+  .hero-description {
+    margin-inline: auto;
+    font-size: 15px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-image {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 50px 0;
+  }
+
+  .hero-title {
+    font-size: 38px;
+  }
+
+  .hero-buttons {
+    gap: 12px;
+  }
+
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-secondary {
+    padding: 11px 17px;
+    font-size: 12px;
+  }
+
+  .hero-image {
+    max-width: 290px;
+  }
+}
+
+
+/* =================================
+   ABOUT SECTION
+================================= */
+
+.about {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Section Heading */
+
+.about-heading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 65px;
+}
+
+.section-label,
+.about-subtitle {
+  display: inline-block;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.about-heading .section-title {
+  margin-bottom: 15px;
+}
+
+.about-heading .section-description {
+  margin: auto;
+}
+
+/* Main Layout */
+
+.about-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  align-items: start;
+}
+
+/* Introduction & Journey */
+
+.about-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.about-block h3,
+.approach-card h3,
+.expertise-heading h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.about-block p,
+.approach-card > p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.journey-block {
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
+}
+
+/* Right Side Cards */
+
+.about-details {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.about-card {
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.about-card:hover {
+  border-color: rgba(50, 214, 165, 0.35);
+}
+
+/* Services */
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+  margin-top: 10px;
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.service-number {
+  flex-shrink: 0;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 700;
+  padding-top: 2px;
+}
+
+.service-item h4 {
+  color: var(--text-primary);
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.service-item p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Working Approach */
+
+.approach-card h3 {
+  font-size: 21px;
+  margin-top: 3px;
+}
+
+.approach-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 22px;
+}
+
+.approach-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.approach-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+  background: rgba(50, 214, 165, 0.12);
+  color: var(--primary);
+  font-size: 12px;
+}
+
+/* Technical Expertise */
+
+.expertise {
+  margin-top: 65px;
+  padding: 30px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.expertise-heading {
+  margin-bottom: 25px;
+}
+
+.expertise-heading h3 {
+  margin-bottom: 0;
+}
+
+.expertise-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.expertise-tag {
+  padding: 10px 18px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: var(--background-secondary);
+  color: var(--text-secondary);
+
+  font-size: 13px;
+  font-weight: 500;
+
+  transition: all 0.3s ease;
+}
+
+.expertise-tag:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: rgba(50, 214, 165, 0.06);
+}
+
+/* =================================
+   ABOUT RESPONSIVE
+================================= */
+
+@media (max-width: 900px) {
+  .about-main {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .about-heading {
+    margin-bottom: 45px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-block h3 {
+    font-size: 21px;
+  }
+
+  .about-card {
+    padding: 22px;
+  }
+
+  .approach-list {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .expertise {
+    padding: 22px;
+    margin-top: 40px;
+  }
+
+  .expertise-tag {
+    padding: 9px 13px;
+    font-size: 12px;
+  }
+
+  .expertise-heading h3 {
+    font-size: 21px;
+  }
+}
+
+
+/* =================================
+   SKILLS SECTION
+================================= */
+
+.skills {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Section Heading */
+
+.skills-heading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 55px;
+}
+
+.skills-heading .section-title {
+  margin-bottom: 15px;
+}
+
+.skills-heading .section-description {
+  margin: auto;
+}
+
+/* Skills Grid */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* Category Card */
+
+.skill-category {
+  padding: 22px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+
+  min-width: 0;
+
+  transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 22px rgba(50, 214, 165, 0.07);
+  transform: translateY(-4px);
+}
+
+/* Category Title */
+
+.skill-category-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+
+  min-height: 42px;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+/* Skill List */
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Individual Skill */
+
+.skill-item {
+  min-width: 0;
+  min-height: 55px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px;
+
+  background: var(--background-secondary);
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  border-color: rgba(50, 214, 165, 0.35);
+  background: var(--surface-hover);
+}
+
+/* Skill Icon */
+
+.skill-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Skill Name */
+
+.skill-name {
+  min-width: 0;
+  flex: 1;
+
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Skill Percentage */
+
+.skill-level {
+  flex-shrink: 0;
+
+  padding: 4px 7px;
+  border-radius: 6px;
+
+  background: rgba(50, 214, 165, 0.09);
+  color: var(--primary);
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* =================================
+   SKILLS RESPONSIVE
+================================= */
+
+@media (max-width: 1100px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .skill-category {
+    padding: 22px 18px;
+  }
+
+  .skill-category-title {
+    font-size: 16px;
+  }
+
+  .skill-item {
+    min-height: 58px;
+  }
+
+  .skill-name {
+    font-size: 13px;
+  }
 }
