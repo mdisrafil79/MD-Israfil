@@ -1020,3 +1020,325 @@ img {
     font-size: 13px;
   }
 }
+
+
+/* =================================
+   PROJECTS SECTION
+================================= */
+
+.projects {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Section Heading */
+
+.projects-heading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 55px;
+}
+
+.projects-heading .section-title {
+  margin-bottom: 15px;
+}
+
+.projects-heading .section-description {
+  margin: auto;
+}
+
+/* Main Slider Card */
+
+.project-slider {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 25px;
+
+  background: rgba(5, 10, 25, 0.8);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Project Content */
+
+.project-content {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 28px;
+
+  min-height: 290px;
+}
+
+/* Project Image */
+
+.project-image-wrapper {
+  width: 100%;
+  height: 290px;
+  overflow: hidden;
+
+  background: #111827;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+
+  transition: transform 0.4s ease;
+}
+
+.project-image-wrapper:hover .project-image {
+  transform: scale(1.03);
+}
+
+/* Project Information */
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.project-counter {
+  padding: 5px 10px;
+
+  background: rgba(50, 214, 165, 0.1);
+  border: 1px solid rgba(50, 214, 165, 0.15);
+  border-radius: 6px;
+
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.project-title {
+  font-size: 23px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.project-description {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* Technology Badges */
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-tech {
+  padding: 6px 10px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+
+  color: var(--text-secondary);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* Project Buttons */
+
+.project-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 3px;
+}
+
+.project-code-btn,
+.project-live-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 10px 15px;
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.project-code-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.project-code-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.project-live-btn {
+  background: var(--gradient);
+  color: #071521;
+}
+
+.project-live-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--gradient-glow);
+}
+
+/* =================================
+   PROJECT NAVIGATION
+================================= */
+
+.project-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+
+  margin-top: 25px;
+  padding-top: 20px;
+
+  border-top: 1px solid var(--border);
+}
+
+.project-nav-btn {
+  padding: 9px 15px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  color: var(--text-primary);
+  font-size: 12px;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.project-nav-btn:hover {
+  background: rgba(50, 214, 165, 0.1);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Slider Dots */
+
+.project-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.project-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+
+  background: #354157;
+  border: none;
+  border-radius: 20px;
+
+  transition: all 0.3s ease;
+}
+
+.project-dot.active {
+  width: 25px;
+  background: var(--gradient);
+}
+
+/* =================================
+   PROJECTS RESPONSIVE
+================================= */
+
+@media (max-width: 900px) {
+  .project-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .project-image-wrapper {
+    height: 250px;
+  }
+
+  .project-title {
+    font-size: 20px;
+  }
+
+  .project-slider {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .project-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .project-image-wrapper {
+    height: 250px;
+  }
+
+  .project-info {
+    gap: 13px;
+  }
+
+  .project-title {
+    font-size: 21px;
+  }
+
+  .project-navigation {
+    gap: 8px;
+  }
+
+  .project-nav-btn {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .project-dots {
+    gap: 5px;
+  }
+
+  .project-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .project-dot.active {
+    width: 17px;
+  }
+}
+
+@media (max-width: 380px) {
+  .project-slider {
+    padding: 14px;
+  }
+
+  .project-image-wrapper {
+    height: 200px;
+  }
+
+  .project-navigation {
+    flex-wrap: wrap;
+  }
+
+  .project-dots {
+    order: 3;
+    width: 100%;
+  }
+}
