@@ -973,21 +973,6 @@ img {
   line-height: 1.4;
 }
 
-/* Skill Percentage */
-
-.skill-level {
-  flex-shrink: 0;
-
-  padding: 4px 7px;
-  border-radius: 6px;
-
-  background: rgba(50, 214, 165, 0.09);
-  color: var(--primary);
-
-  font-size: 10px;
-  font-weight: 700;
-}
-
 /* =================================
    SKILLS RESPONSIVE
 ================================= */

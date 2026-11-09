@@ -5,39 +5,39 @@ const skillCategories = [
   {
     title: "Frontend Development",
     skills: [
-      { name: "HTML5", level: 95, icon: "html5/html5-original.svg" },
-      { name: "CSS3", level: 90, icon: "css3/css3-original.svg" },
-      { name: "JavaScript (ES6+)", level: 85, icon: "javascript/javascript-original.svg" },
-      { name: "TypeScript", level: 80, icon: "typescript/typescript-original.svg" },
-      { name: "React.js", level: 88, icon: "react/react-original.svg" },
-      { name: "Next.js", level: 75, icon: "nextjs/nextjs-original.svg" },
+      { name: "HTML5", icon: "html5/html5-original.svg" },
+      { name: "CSS3", icon: "css3/css3-original.svg" },
+      { name: "JavaScript (ES6+)", icon: "javascript/javascript-original.svg" },
+      { name: "TypeScript", icon: "typescript/typescript-original.svg" },
+      { name: "React.js", icon: "react/react-original.svg" },
+      { name: "Next.js", icon: "nextjs/nextjs-original.svg" },
     ],
   },
   {
     title: "Backend & Database",
     skills: [
-      { name: "Node.js", level: 80, icon: "nodejs/nodejs-original.svg" },
-      { name: "Express.js", level: 75, icon: "express/express-original.svg" },
-      { name: "MongoDB", level: 75, icon: "mongodb/mongodb-original.svg" },
+      { name: "Node.js", icon: "nodejs/nodejs-original.svg" },
+      { name: "Express.js", icon: "express/express-original.svg" },
+      { name: "MongoDB", icon: "mongodb/mongodb-original.svg" },
     ],
   },
   {
     title: "Styling & UI Libraries",
     skills: [
-      { name: "Tailwind CSS", level: 85, icon: "tailwindcss/tailwindcss-original.svg" },
-      { name: "Bootstrap", level: 80, icon: "bootstrap/bootstrap-original.svg" },
-      { name: "Sass", level: 75, icon: "sass/sass-original.svg" },
-      { name: "Shadcn UI", level: 75, icon: "react/react-original.svg" },
+      { name: "Tailwind CSS", icon: "tailwindcss/tailwindcss-original.svg" },
+      { name: "Bootstrap", icon: "bootstrap/bootstrap-original.svg" },
+      { name: "Sass", icon: "sass/sass-original.svg" },
+      { name: "Shadcn UI", icon: "react/react-original.svg" },
     ],
   },
   {
     title: "Tools & Platforms",
     skills: [
-      { name: "Git", level: 85, icon: "git/git-original.svg" },
-      { name: "GitHub", level: 85, icon: "github/github-original.svg" },
-      { name: "VS Code", level: 90, icon: "vscode/vscode-original.svg" },
-      { name: "Vite", level: 80, icon: "vite/vite-original.svg" },
-      { name: "Vercel", level: 75, icon: "vercel/vercel-original.svg" },
+      { name: "Git", icon: "git/git-original.svg" },
+      { name: "GitHub", icon: "github/github-original.svg" },
+      { name: "VS Code", icon: "vscode/vscode-original.svg" },
+      { name: "Vite", icon: "vite/vite-original.svg" },
+      { name: "Vercel", icon: "vercel/vercel-original.svg" },
     ],
   },
 ];
@@ -88,10 +88,6 @@ export default function Skills() {
 
                     <span className="skill-name">
                       {skill.name}
-                    </span>
-
-                    <span className="skill-level">
-                      {skill.level}%
                     </span>
 
                   </div>
