@@ -55,8 +55,8 @@ export default function Hero() {
           <Image
             src="/images/profile.png"
             alt="MD Israfil - MERN Stack Developer"
-            width={447}
-            height={427}
+            width={1074}
+            height={1278}
             priority
             className="hero-image"
           />

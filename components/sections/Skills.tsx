@@ -19,7 +19,6 @@ const skillCategories = [
       { name: "Node.js", level: 80, icon: "nodejs/nodejs-original.svg" },
       { name: "Express.js", level: 75, icon: "express/express-original.svg" },
       { name: "MongoDB", level: 75, icon: "mongodb/mongodb-original.svg" },
-      { name: "Firebase", level: 70, icon: "firebase/firebase-original.svg" },
     ],
   },
   {
@@ -28,7 +27,6 @@ const skillCategories = [
       { name: "Tailwind CSS", level: 85, icon: "tailwindcss/tailwindcss-original.svg" },
       { name: "Bootstrap", level: 80, icon: "bootstrap/bootstrap-original.svg" },
       { name: "Sass", level: 75, icon: "sass/sass-original.svg" },
-      { name: "DaisyUI", level: 80, icon: "daisyui/daisyui-original.svg" },
       { name: "Shadcn UI", level: 75, icon: "react/react-original.svg" },
     ],
   },
