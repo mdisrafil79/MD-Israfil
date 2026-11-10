@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://mdisrafil79.netlify.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://md-israfil.vercel.app";
 
 const siteTitle = "MD Israfil — MERN-Stack Web Developer";
 const siteDescription =
@@ -40,6 +40,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "MD Israfil" }],
   creator: "MD Israfil",
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
     type: "website",
     url: "/",
