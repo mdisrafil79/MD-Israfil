@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://mdisrafil79.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://mdisrafil79.netlify.app";
 
 const siteTitle = "MD Israfil — MERN-Stack Web Developer";
 const siteDescription =
