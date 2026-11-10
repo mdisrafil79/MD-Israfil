@@ -48,9 +48,9 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: "/images/profile.png",
-        width: 1074,
-        height: 1278,
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "MD Israfil — MERN-Stack Web Developer",
       },
     ],
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/images/profile.png"],
+    images: ["/og-image.jpg"],
   },
 };
 
