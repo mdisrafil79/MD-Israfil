@@ -4,13 +4,13 @@ import { useState } from "react";
 
 const projects = [
   {
-    name: "Project One",
+    name: "Dev Stack",
     description:
       "A modern and responsive web application built to provide a smooth and user-friendly digital experience.",
     image: "/images/projects/project-1.png",
     technologies: ["React.js", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/",
-    live: "https://example.com",
+    github: "https://github.com/mdisrafil79/Dev-Stack",
+    live: "https://dev-stack-web26.vercel.app/",
   },
   {
     name: "Project Two",
