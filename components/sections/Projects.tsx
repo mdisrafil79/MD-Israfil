@@ -6,7 +6,7 @@ const projects = [
   {
     name: "Dev Stack",
     description:
-      "A modern and responsive web application built to provide a smooth and user-friendly digital experience.",
+      "A web app to explore and compare frontend, backend, database, and tooling technologies, and build your ideal tech stack.",
     image: "/images/projects/project-1.png",
     technologies: ["React.js", "TypeScript", "Tailwind CSS"],
     github: "https://github.com/mdisrafil79/Dev-Stack",
@@ -15,11 +15,11 @@ const projects = [
   {
     name: "Project Two",
     description:
-      "A full-stack web application featuring dynamic content, interactive functionality, and responsive design.",
+      "A fantasy cricket app where users pick players within a coin budget and build their dream squad.",
     image: "/images/projects/project-2.png",
-    technologies: ["Next.js", "Node.js", "MongoDB"],
-    github: "https://github.com/",
-    live: "https://example.com",
+    technologies: ["React.js", "Node.js", "Typescript", "Tailwondcss"],
+    github: "https://github.com/mdisrafil79/BPL-Dream",
+    live: "https://ultimate-dream-11cricket-team.netlify.app/",
   },
   {
     name: "Project Three",
