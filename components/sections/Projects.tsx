@@ -13,13 +13,13 @@ const projects = [
     live: "https://dev-stack-web26.vercel.app/",
   },
   {
-    name: "Project Two",
+    name: "BPL Dream",
     description:
       "A full-stack web application featuring dynamic content, interactive functionality, and responsive design.",
     image: "/images/projects/project-2.png",
-    technologies: ["Next.js", "Node.js", "MongoDB"],
-    github: "https://github.com/",
-    live: "https://example.com",
+    technologies: ["React.js", "TypeScript",],
+    github: "https://github.com/mdisrafil79/BPL-Dream",
+    live: "https://ultimate-dream-11cricket-team.netlify.app/",
   },
   {
     name: "Project Three",
