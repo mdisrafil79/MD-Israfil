@@ -13,7 +13,7 @@ const projects = [
     live: "https://dev-stack-web26.vercel.app/",
   },
   {
-    name: "Project Two",
+    name: "BPL Dream",
     description:
       "A fantasy cricket app where users pick players within a coin budget and build their dream squad.",
     image: "/images/projects/project-2.png",
